@@ -1,5 +1,5 @@
 import React from "react";
-import Personal from "../projects/Personal";
+import Personal from "./Personal";
 
 function PersonalProjects() {
   return (

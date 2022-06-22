@@ -1,7 +1,5 @@
 import React from "react";
-import Menu from "./layouts/Menu";
-import Router from "./layouts/Router";
-
+import Layout from "./layout/layout"
 /**
  * Defines the root application component.
  * @returns {JSX.Element}
@@ -10,8 +8,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Menu />
-        <Router />
+        <Layout />
       </div>
     </div>
   );

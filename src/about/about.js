@@ -1,6 +1,6 @@
 import React from "react";
 
-function Menu() {
+function About() {
   return (
     <div>
       <h4>Home</h4>
@@ -11,4 +11,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default About;
