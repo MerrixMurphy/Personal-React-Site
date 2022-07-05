@@ -1,12 +1,10 @@
-const API_BASE_URL =
-      "https://api.github.com/users/MerrixMurphy/repos";
+const API_BASE_URL = "https://api.github.com/users/";
 
-const headers = new Headers();
-headers.append("Content-Type", "application/json");
+const API_USER = "MerrixMurphy/"
 
-async function fetchJson(url, options, onCancel) {
+async function fetchJson(url, onCancel) {
       try {
-        const response = await fetch(url, options);
+        const response = await fetch(url);
     
         if (response.status === 204) {
           return null;
@@ -17,7 +15,7 @@ async function fetchJson(url, options, onCancel) {
         if (payload.error) {
           return Promise.reject({ message: payload.error });
         }
-        return payload.data;
+        return payload;
       } catch (error) {
         if (error.name !== "AbortError") {
           console.error(error.stack);
@@ -27,7 +25,12 @@ async function fetchJson(url, options, onCancel) {
       }
     }
 
-    export async function listRepos(signal) {
-      const url = new URL(`${API_BASE_URL}`);
-      return await fetchJson(url, { headers, signal }, [])
+    export async function listRepos() {
+      const url = new URL(`${API_BASE_URL}${API_USER}repos`);
+      return await fetchJson(url, [])
+    }
+
+    export async function getRepoReadme(repo) {
+      const url = new URL(`${API_BASE_URL}repos/${API_USER}${repo}readme`);
+      return await fetchJson(url, [])
     }

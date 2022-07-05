@@ -11,7 +11,7 @@ function Layout() {
       <Nav />
       <Routes />
       <Footer />
-      </div>
+    </div>
   );
 }
 
