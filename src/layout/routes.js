@@ -8,50 +8,59 @@ import {listRepos, getRepoReadme} from "../utils/api/api"
 
 function Routing() {
   const [repos, setRepos] = useState([])
+  const [allRepos, setAllRepos] = useState([])
   const [perRepos, setPerRepos] = useState([])
   const [proRepos, setProRepos] = useState([])
   const [newRepos, setNewRepos] = useState([])
+
   function pullRepos(){
     const abortController = new AbortController();
     listRepos()
-    .then(res => res.forEach((element) => {
-      if (element.fork === false) {
-        const newRepo = {
-          name: element.name,
-          description: element.name,
-          id: element.id,
-          html_url: element.html_url
-        }
-        setRepos({...repos, newRepo})
-      }
-    })
-    )
+    .then(setAllRepos)
     .catch((err) => console.log(err))
     return () => abortController.abort
   }
+  
   function distroRepos(){
-    const professionalRepos = [425923736, 383274947, 388184984, 401868243, 399282785, 377055692, 411456847, 385342395]
-    const personalRepos = [380911451, 380910496, 439740161, 380909285, 380909848, 380913201, 502223407]
-    repos.length > 0 ? repos.forEach((element) => {
+    const professionalRepos = [425923736, 383274947, 388184984, 401868243, 399282785, 377055692, 411456847]
+    const personalRepos = [380911451, 380910496, 380909285, 380909848, 380913201]
+    const exclude = [385342395, 439740161]
+          setPerRepos([])
+          setNewRepos([])
+          setProRepos([])
+      repos.forEach((element) => {
+        if (!exclude.includes(element.id)){
     if (professionalRepos.includes(element.id)){
-      console.log("pro")
-      setProRepos({...proRepos, element})
+      setProRepos(p => [...p, element])
     } else if (personalRepos.includes(element.id)){
-      console.log("per")
-      setPerRepos({...perRepos, element})
+      setPerRepos(p => [...p, element])
     } else {
-      console.log("new")
-      setNewRepos({...newRepos, element})
+      setNewRepos(p => [...p, element])
     }
-  }) : null
   }
+  })
+}
   // function readRepo(repo){
   //   const abortController = new AbortController();
   //   getRepoReadme(repo).then()
   //   return () => abortController.abort
   // }
-  useEffect(pullRepos, [setRepos, repos])
-  useEffect(distroRepos, [newRepos, perRepos, proRepos, repos])
+  useEffect(pullRepos, [])
+  useEffect(() => {
+    const newRepoList = []
+    allRepos.forEach((element) => {
+      if (element.fork === false) {
+        newRepoList.push({
+          name: element.name,
+          description: element.description,
+          id: element.id,
+          html_url: element.html_url
+        })
+      }
+    })
+    setRepos(newRepoList)
+  }, [allRepos])
+  useEffect(distroRepos, [repos])
   return (
     <Routes>
       <Route exact={true} path="/" element={<Navigate to={"/home"}/>} />

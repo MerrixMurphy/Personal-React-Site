@@ -1,6 +1,7 @@
 import React from "react";
 
 function PersonalProjects(repos) {
+  repos = repos.repos.sort()
   return repos.length > 0 ? repos.map((element) => {
     return (
       <div key={element.id}>

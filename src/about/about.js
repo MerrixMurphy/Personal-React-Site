@@ -3,10 +3,10 @@ import React from "react";
 function About() {
   return (
     <div>
-      <h4>Home</h4>
+      <h4>GitHub</h4>
+      <h4>LinkedIn</h4>
       <h4>About</h4>
-      <h4>Personal</h4>
-      <h4>Professional</h4>
+      <h4>Other</h4>
     </div>
   );
 }
