@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "../home/home";
 import About from "../about/about";
+import Contact from "../contact/contact";
 import PersonalProjects from "../personal/Personal-Projects";
 import ProfessionalProjects from "../professional/Professional-Projects"
 import {listRepos, getRepoReadme} from "../utils/api/api"
@@ -54,7 +55,8 @@ function Routing() {
           name: element.name,
           description: element.description,
           id: element.id,
-          html_url: element.html_url
+          html_url: element.html_url,
+          isPrivate: element.private
         })
       }
     })
@@ -66,6 +68,7 @@ function Routing() {
       <Route exact={true} path="/" element={<Navigate to={"/home"}/>} />
       <Route path="/home" element={<Home repos={newRepos} />}/>
       <Route path="/about" element={<About />}/>
+      <Route path="/contact" element={<Contact />}/>
       <Route path="/personal-projects" element={<PersonalProjects repos={perRepos} />}/>
       <Route path="/professional-projects" element={<ProfessionalProjects repos={proRepos} />}/>
     </Routes>

@@ -5,12 +5,6 @@ function Nav() {
   return (
     <nav>
     <ul>
-    <li >
-            <Link to="/home">
-              <span  />
-              &nbsp;Home
-            </Link>
-          </li>
           <li >
             <Link to="/about">
               <span  />
@@ -24,9 +18,21 @@ function Nav() {
             </Link>
           </li>
           <li >
+            <Link to="/home">
+              <span  />
+              &nbsp;Home
+            </Link>
+          </li>
+          <li >
             <Link to="/professional-projects">
               <span  />
               &nbsp;Professional
+            </Link>
+          </li>
+          <li >
+            <Link to="/contact">
+              <span  />
+              &nbsp;Contact
             </Link>
           </li>
     </ul>
