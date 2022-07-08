@@ -1,85 +1,65 @@
-              @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+nav {
+  padding: 0px 20px 0px 20px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  background-color: rgba(0,0,0,0.3);
+  max-height: max-content;
+  padding: 0;
+  box-shadow: 0px 3px 8px gray;
+}
 
 a {
-  display: inline-block;
-  font-weight: 500;
-  font-size: 16px;
-  color: black;
-  text-decoration: none;
-  font-family: "Anton", sans-serif;
-}
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #ff0000;
-}
-.navMenu {
-  border-bottom: 2px black solid;
-}
-nav {
-  width: 100%;
-  text-align: center;
-}
-.selected {
-  background-color: #c40000;
-}
-.navMenu:hover {
-  background-color: #c40000;
-}
-
-img {
-  height: 105px;
-}
-
-footer {
-  background-color: rgb(255, 255, 255);
-  display: flex;
-}
-
-#page-container {
   position: relative;
-  min-height: 100vh;
-}
-
-#content-wrap {
-  padding-bottom: 2.5rem;
-}
-
-#footer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  position: absolute;
-  bottom: 0;
+  justify-content: center;
+}
+
+nav ul{
+  border-radius: 0px 0px 30px 30px;
+}
+
+.hover_viewer{
+  position:absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 70px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.25s;
 }
 
-.footerImg {
-  padding-top: 10px;
-  height: 50px;
-  width: 50px;
+.hover_viewer:hover {
+  opacity: 1;
 }
 
-@media only screen and (min-width: 800px) {
-  nav {
-    display: flex;
-    justify-content: space-between;
-    height: 108px;
-    border: 2px black solid;
-  }
-  .row {
-    display: flex;
-    flex-direction: row;
-  }
-  .navMenu {
-    display: flex;
-    align-items: center;
-    border-bottom: 0px black solid;
-    border-left: 2px black solid;
-  }
-  .spacing {
-    padding: 0px 15px 0px 15px;
-  }
+.navIcon {
+  max-width: 20%;
+  max-height: 20%;
+  display: block;
+}
+
+.nav_option {
+  font-size: large;
+  font-weight: bold;
+}
+
+.curve_right {
+  border-radius: 0px 0px 30px 0px;
+}
+
+.curve_left {
+  border-radius: 0px 0px 0px 30px;
+}
+
+@media only screen and (max-width: 1000px) {
 }

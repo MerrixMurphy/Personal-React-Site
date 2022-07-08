@@ -6,8 +6,8 @@ import Layout from "./layout/layout"
  */
 function App() {
   return (
-    <div className="App">
-      <div className="container">
+    <div>
+      <div>
         <Layout />
       </div>
     </div>
