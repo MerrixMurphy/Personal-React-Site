@@ -8,7 +8,9 @@ function Layout() {
   return (
     <div>
       <Nav />
+      <div className="center">
       <Routes />
+      </div>
     </div>
   );
 }

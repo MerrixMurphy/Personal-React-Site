@@ -2,6 +2,7 @@ import React from "react";
 
 function Contact() {
   return (
+    <div className="mainContent">
     <form>
       <label for="from">From:</label>
       <input type="text" id="from" name="from"/>
@@ -12,6 +13,7 @@ function Contact() {
       <h4>Attachment</h4>
       <button>Send</button>
     </form>
+    </div>
   );
 }
 
