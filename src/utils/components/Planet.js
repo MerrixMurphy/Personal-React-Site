@@ -14,6 +14,7 @@ import Mercury from "../../layout/images/2k_mercury.jpg";
 import Neptune from "../../layout/images/2k_neptune.jpg";
 import Saturn from "../../layout/images/2k_saturn.jpg"
 import Uranus from "../../layout/images/2k_uranus.jpg"
+let nameholder = null
 
 function Sphere(props) {
     const textures = [
@@ -36,26 +37,26 @@ function Sphere(props) {
     const mesh = useRef();
 
   useFrame((state, delta) => {
-    mesh.current.rotation.x = mesh.current.rotation.y += 0.01
+    mesh.current.rotation.y = mesh.current.rotation.y += 0.01
+    mesh.current.rotation.z = 0.41
   });
     return(
-        <mesh {...props} ref={mesh}>
+        <mesh {...props} ref={mesh} onClick={() => nameholder ? window.open(`https://merrixmurphy.github.io/` + nameholder) : null}>
             <sphereBufferGeometry attach="geometry"/>
             <meshStandardMaterial attach="material" map={texture}/>
         </mesh>
     )
 }
 
-function Planet() {
+function Planet({liveName}) {
+  nameholder = liveName
     return (
-        <div>
     <Canvas>
         <directionalLight intensity={1} position={[10,10,30]}/>
         <Suspense fallback={null}>
-        <Sphere position={[0,0,0]}/>
+        <Sphere position={[0,0,3]}/>
         </Suspense>
     </Canvas>
-    </div>
   )}
 
 export default Planet;

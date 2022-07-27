@@ -12,41 +12,41 @@ function Nav() {
     <ul>
           <li >
             <Link to="/about">
-              <img src={About} alt="Profile" title="Profile" className="navIcon"/>
-              <div className="hover_viewer curve_left">
-            <div className="nav_option">Profile</div>
+              <img src={About} alt="Profile" title="Profile"/>
+              <div style={{borderRadius: '0px 0px 0px 30px'}}>
+            <h1>Profile</h1>
             </div>
             </Link>
           </li>
           <li >
             <Link to="/personal-projects">
-            <img src={Personal} alt="Personal Projects" title="Personal Projects" className="navIcon"/>
-            <div className="hover_viewer">
-            <div className="nav_option">Personal Projects</div>
+            <img src={Personal} alt="Personal Projects" title="Personal Projects"/>
+            <div>
+            <h1>Personal Projects</h1>
             </div>
             </Link>
           </li>
           <li >
             <Link to="/home">
-            <img src={Home} alt="Home" title="Home" className="navIcon"/>
-            <div className="hover_viewer">
-            <div className="nav_option">Home</div>
+            <img src={Home} alt="Home" title="Home"/>
+            <div>
+            <h1>Home</h1>
             </div>
             </Link>
           </li>
           <li >
             <Link to="/professional-projects">
-            <img src={Professional} alt="Professional Projects" title="Professional Projects" className="navIcon"/>
-            <div className="hover_viewer">
-            <div className="nav_option">Professional Projects</div>
+            <img src={Professional} alt="Professional Projects" title="Professional Projects"/>
+            <div>
+            <h1>Professional Projects</h1>
             </div>
             </Link>
           </li>
           <li >
             <Link to="/contact">
-            <img src={Contact} alt="Contact" title="Contact" className="navIcon"/>
-            <div className="hover_viewer curve_right">
-            <div className="nav_option">Contact</div>
+            <img src={Contact} alt="Contact" title="Contact"/>
+            <div style={{borderRadius: '0px 0px 30px 0px'}}>
+            <h1>Contact</h1>
             </div>
             </Link>
           </li>

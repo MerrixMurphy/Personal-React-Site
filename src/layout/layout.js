@@ -6,11 +6,9 @@ import "./layout.css";
 
 function Layout() {
   return (
-    <div>
+    <div className="starry">
       <Nav />
-      <div className="center">
       <Routes />
-      </div>
     </div>
   );
 }

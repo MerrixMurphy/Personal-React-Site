@@ -6,11 +6,7 @@ import Layout from "./layout/layout"
  */
 function App() {
   return (
-    <div>
-      <div>
-        <Layout />
-      </div>
-    </div>
+      <Layout />
   );
 }
 

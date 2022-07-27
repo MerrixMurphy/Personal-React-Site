@@ -5,7 +5,7 @@ import About from "../about/about";
 import Contact from "../contact/contact";
 import PersonalProjects from "../personal/Personal-Projects";
 import ProfessionalProjects from "../professional/Professional-Projects"
-import {listRepos, getRepoReadme} from "../utils/api/api"
+import {listRepos} from "../utils/api/api"
 
 function Routing() {
   const [repos, setRepos] = useState([])
@@ -41,21 +41,19 @@ function Routing() {
   }
   })
 }
-  // function readRepo(repo){
-  //   const abortController = new AbortController();
-  //   getRepoReadme(repo).then()
-  //   return () => abortController.abort
-  // }
+
   useEffect(pullRepos, [])
   useEffect(() => {
     const newRepoList = []
     allRepos.forEach((element) => {
       if (element.fork === false) {
+        const betterLastPush = new Date(element.pushed_at).toString().slice(0, 15)
         newRepoList.push({
           name: element.name,
           description: element.description,
           id: element.id,
           html_url: element.html_url,
+          last_pushed: betterLastPush,
           isPrivate: element.private
         })
       }
