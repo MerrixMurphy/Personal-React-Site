@@ -5,7 +5,7 @@ function ProfessionalProjects({repos}) {
   const liveDeploy = [377055692]
   return (
     <div className="mainContent">
-      <ProjectRender repos={repos} deploy={liveDeploy}/>
+      {repos ? <ProjectRender repos={repos} deploy={liveDeploy}/> : null}
     </div>
   )}
 

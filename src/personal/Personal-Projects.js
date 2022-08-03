@@ -5,7 +5,7 @@ function PersonalProjects({repos}) {
   const liveDeploy = []
   return (
     <div className="mainContent">
-      <ProjectRender repos={repos} deploy={liveDeploy}/>
+      {repos ? <ProjectRender repos={repos} deploy={liveDeploy}/> : null}
     </div>
   )}
 

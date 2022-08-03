@@ -16,27 +16,23 @@ function ProjectRender({repos, deploy, homePage}) {
         }
     }
   return (
-    <div>
-    {!homePage ? null : <div>
-            <h2>Hi! I'm Merrix Murphy</h2>
-            <h3>I am a Full Stack Web Developer and graduate of Thinkful and UNLV.</h3>
-            <h4>I currently work for UST as a contractor for Intel.</h4>
-          </div>}
-    {repos.length > 0 ? 
+            repos.length > 0 ? 
       //make live url change between git and heroku
-        <div key={repos[currentRepo].id}>
-          <h2>Check out my latest projects!</h2>
+        <div key={repos[currentRepo].id} >
+          <h2>Planet Number: {repos[currentRepo].id}</h2>
           <div className="flex">
           {repos.length > 1 ? <img src={Arrow} onClick={leftArrow} alt="Left" title="Left" className="left"/> : null}
           {deploy.includes(repos[currentRepo].id) ? <Planet liveName={repos[currentRepo].name}/> : <Planet/>}
           {repos.length > 1 ? <img src={Arrow} onClick={rightArrow} alt="Right" title="Right" className="right"/> : null}
           </div>
-          {deploy.includes(repos[currentRepo].id) ? <a href={repos[currentRepo].html_url} target="blank">{repos[currentRepo].name} (This planet has life! Click it to find out more!)</a> : <a href={repos[currentRepo].html_url} target="blank">{repos[currentRepo].name}</a>}
-          <h5>Last updated: {repos[currentRepo].last_pushed}</h5>
-          <h5>{repos[currentRepo].description}</h5>
+          <div>
+          <p>Project Name: <a href={repos[currentRepo].html_url} target="blank" className="displayInline">{repos[currentRepo].name}</a></p>
+          <p>Supports Life: {deploy.includes(repos[currentRepo].id) ?  <a href={`https://merrixmurphy.github.io/` + repos[currentRepo].name} target="blank" className="displayInline">True</a> : "False"} </p>
+          <p>Last update: {repos[currentRepo].last_pushed}</p>
+          <p>{repos[currentRepo].description}</p>
+          </div>
         </div>
-    : (<h4>No Repos</h4>)}
-    </div>
+    : (<h4>No Repos</h4>)
   )}
 
 export default ProjectRender;

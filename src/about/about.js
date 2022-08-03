@@ -1,36 +1,43 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useMemo, useEffect} from "react";
+import ProfilePic from "../layout/images/profile.jpg"
 
 function About() {
-  const languages = ["JavaScript", "CSS", "HTML", "Java"];
-  const frameworks = ["React", "Node", "Express", "Bootstrap"];
-  const tools = ["Git", "GitHub", "GitHub Pages", "Vercel", "Heroku"];
-  const lan = languages.length
-  const fra = frameworks.length
-  const tol = tools.length
-  const [longest, setLongest] = useState(0);
-useEffect(() => {
-  if (lan > fra) {
-    if (lan > tol) {
-      setLongest(lan);
-    } else {
-      setLongest(tol);
-    }
-  } else {
-    if (fra > tol) {
-      setLongest(fra);
-    } else {
-      setLongest(tol);
-    }
-  }
-}, [lan, fra, tol]);
+  const languages = useMemo(() => ["JavaScript", "CSS", "HTML", "Java"], []);
+  const frameworks = useMemo(() => ["React", "Node", "Express", "Bootstrap"], []);
+  const tools = useMemo(() => ["Git", "GitHub", "GitHub Pages", "Vercel", "Heroku"], []);
+  const [longest, setLongest] = useState(null);
+
+  useEffect(() => {
+      if (languages.length > frameworks.length) {
+        if (languages.length > tools.length) {
+          setLongest(languages);
+        } else {
+          setLongest(tools);
+        }
+      } else {
+        if (frameworks.length > tools.length) {
+          setLongest(frameworks);
+        } else {
+          setLongest(tools);
+        }
+      };
+    },
+    [frameworks, languages, tools],
+  );
+
   return (
     <div className="mainContent">
-      <h2>Hi!</h2>
-          <h3>I am a Full Stack Web Developer who has been developing since early 2020.</h3>
-          <h4>I graduated from <a href="https://www.thinkful.com/about/" target="blank" className="displayInline">Thinkful</a> in 2021 with a certification in software engineering and from <a href="https://www.unlv.edu/about" target="blank" className="displayInline">UNLV </a>in 2018 with a BA in English and a Concentration in creative writing.</h4>
-          <h4>I currently work for <a href="https://www.ust.com/en/who-we-are" target="blank" className="displayInline">UST</a> as a contractor for <a href="https://www.intel.com/content/www/us/en/company-overview/company-overview.html" target="blank" className="displayInline">Intel</a>.</h4>
-          <h4>Web Developer proficient in JavaScript ES6, React, HTML5, and CSS3 with 4 years of experience in customer service which has developed stress management, customer service, and troubleshooting skills. Have a strong interest in storytelling, which helped me acquire a BA in English with a concentration in Creative Writing.</h4>
-          <h1>Skills</h1>
+      <div className="mediaflex">
+      <img src={ProfilePic} alt="Developer" title="Developer"/>
+      <div>
+          <h6>Developer since 2020</h6>
+          <h6>Graduated from <a href="https://www.thinkful.com/about/" target="blank" className="displayInline">Thinkful</a> in 2021 with a certification in software engineering </h6>
+          <h6>Graduated from <a href="https://www.unlv.edu/about" target="blank" className="displayInline">UNLV </a>in 2018 with a BA in English and a Concentration in creative writing</h6>
+          <h6>I currently work full time for <a href="https://www.ust.com/en/who-we-are" target="blank" className="displayInline">UST</a> and as a contractor for <a href="https://www.intel.com/content/www/us/en/company-overview/company-overview.html" target="blank" className="displayInline">Intel</a></h6>
+      </div>
+      </div>
+      <h6>Full Stack Web Developer proficient in JavaScript ES6, React, HTML5, and CSS3 with 4 years of experience in customer service which has developed stress management, customer service, and troubleshooting skills. Have a strong interest in storytelling, which helped me acquire my BA in English.</h6>
+          <h3>Skills</h3>
      <table>
       <thead>
       <tr>
@@ -40,16 +47,16 @@ useEffect(() => {
       </tr>
       </thead>
         <tbody>
-      {longest.map((e, i) => (
-    <tr>
-    <td>{languages[i] !== undefined ? languages[i] : null}</td>
-    <td>{frameworks[i] !== undefined ? frameworks[i] : null}</td>
-    <td>{tools[i] !== undefined ? tools[i] : null}</td>
+      {longest ? longest.map((e, i) => (
+    <tr key={`table` + longest[i]}>
+    <td key={languages[i] !== undefined ? languages[i] : `languages`+i+`null`}>{languages[i] !== undefined ? languages[i] : null}</td>
+    <td key={frameworks[i] !== undefined ? frameworks[i] : `frameworks`+i+`null`}>{frameworks[i] !== undefined ? frameworks[i] : null}</td>
+    <td key={tools[i] !== undefined ? tools[i] : `tools`+i+`null`}>{tools[i] !== undefined ? tools[i] : null}</td>
     </tr>
-        ))}
+        )) : null}
       </tbody>
      </table>
-      <h4>You can find out more about me on <a href="https://github.com/MerrixMurphy" target="blank" className="displayInline">GitHub</a> and <a href="https://www.linkedin.com/in/merrix-murphy/" target="blank" className="displayInline">LinkedIn</a>.</h4>
+      <h6>You can find out more about me on <a href="https://github.com/MerrixMurphy" target="blank" className="displayInline">GitHub</a> and <a href="https://www.linkedin.com/in/merrix-murphy/" target="blank" className="displayInline">LinkedIn</a>.</h6>
     </div>
   );
 }

@@ -5,14 +5,22 @@ import About from "../about/about";
 import Contact from "../contact/contact";
 import PersonalProjects from "../personal/Personal-Projects";
 import ProfessionalProjects from "../professional/Professional-Projects"
+import NotFound from "./notFound";
 import {listRepos} from "../utils/api/api"
 
 function Routing() {
   const [repos, setRepos] = useState([])
   const [allRepos, setAllRepos] = useState([])
-  const [perRepos, setPerRepos] = useState([])
-  const [proRepos, setProRepos] = useState([])
-  const [newRepos, setNewRepos] = useState([])
+  const [perRepos, setPerRepos] = useState(null)
+  const [proRepos, setProRepos] = useState(null)
+  const [newRepos, setNewRepos] = useState(null)
+  const defaultContactData = {
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  }
+  const [contactData, setContactData] = useState({...defaultContactData})
 
   function pullRepos(){
     const abortController = new AbortController();
@@ -64,11 +72,12 @@ function Routing() {
   return (
     <Routes>
       <Route exact={true} path="/" element={<Navigate to={"/home"}/>} />
-      <Route path="/home" element={<Home repos={newRepos} />}/>
-      <Route path="/about" element={<About />}/>
-      <Route path="/contact" element={<Contact />}/>
-      <Route path="/personal-projects" element={<PersonalProjects repos={perRepos} />}/>
-      <Route path="/professional-projects" element={<ProfessionalProjects repos={proRepos} />}/>
+      <Route exact={true} path="/home" element={<Home repos={newRepos} />}/>
+      <Route exact={true} path="/about" element={<About />}/>
+      <Route exact={true} path="/contact" element={<Contact contactData={contactData} setContactData={setContactData} defaultContactData={defaultContactData}/>}/>
+      <Route exact={true} path="/personal-projects" element={<PersonalProjects repos={perRepos} />}/>
+      <Route exact={true} path="/professional-projects" element={<ProfessionalProjects repos={proRepos} />}/>
+      <Route exact={true} path="*" element={<NotFound />} />
     </Routes>
   );
 }
