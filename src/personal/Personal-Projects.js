@@ -1,12 +1,13 @@
 import React from "react";
 import ProjectRender from "../utils/components/Project-Render";
 
-function PersonalProjects({repos}) {
-  const liveDeploy = []
+function PersonalProjects({ repos }) {
+  const liveDeploy = [];
   return (
-    <div className="mainContent">
-      {repos ? <ProjectRender repos={repos} deploy={liveDeploy}/> : null}
-    </div>
-  )}
+    <main className="normContentFormat">
+      {repos ? <ProjectRender repos={repos} deploy={liveDeploy} /> : null}
+    </main>
+  );
+}
 
 export default PersonalProjects;

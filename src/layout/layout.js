@@ -6,7 +6,7 @@ import "./layout.css";
 
 function Layout() {
   return (
-    <div className="starry">
+    <div>
       <Nav />
       <Routes />
     </div>
