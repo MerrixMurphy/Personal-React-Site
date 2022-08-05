@@ -61,7 +61,7 @@ function Contact({ contactData, setContactData, defaultContactData }) {
             <p>
               <label htmlFor="email">Email:</label>
               <input
-                type="email"
+                type="text"
                 id="email"
                 name="email"
                 placeholder="somemail@nomail.com"
