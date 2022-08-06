@@ -67,8 +67,8 @@ function About() {
       <h6>
         Full Stack Web Developer proficient in JavaScript ES6, React, HTML5, and
         CSS3 with 4 years of experience in customer service which has developed
-        stress management, customer service, and troubleshooting skills. Have a
-        strong interest in storytelling, which helped me acquire my BA in
+        stress management, customer service, and troubleshooting skills. I have
+        a strong interest in storytelling, which helped me acquire my BA in
         English.
       </h6>
       <h3>Skills</h3>
