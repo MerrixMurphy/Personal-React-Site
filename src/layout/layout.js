@@ -6,7 +6,7 @@ import "./layout.css";
 
 function Layout() {
   return (
-    <div>
+    <div style={{ maxHeight: "fit-content" }}>
       <Nav />
       <Routes />
     </div>

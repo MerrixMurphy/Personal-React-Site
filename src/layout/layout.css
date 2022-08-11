@@ -30,7 +30,7 @@ a {
 }
 a,
 a:hover {
-  color: #ffffdc;
+  color: #dae1ff;
 }
 td,
 table {
@@ -89,22 +89,39 @@ label,
 .mediaQueryflex {
   align-self: center;
 }
+nav {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  z-index: 1;
+}
 nav ul {
   border-radius: 0px 0px 30px 30px;
   list-style: none;
   display: flex;
+  width: 70%;
+  align-items: center;
   background: rgb(0, 0, 0);
   margin: 0rem 1rem 1rem 1rem;
   padding: 0%;
   box-shadow: 0px 3px 8px rgb(194, 194, 194);
 }
+nav li:first-child div {
+  border-radius: 0px 0px 0px 30px;
+}
+nav li:last-child div {
+  border-radius: 0px 0px 30px 0px;
+}
 nav img {
   max-width: 20%;
 }
-nav a {
+nav a,
+#ExpandMenu {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   color: rgb(0, 0, 0);
   text-decoration: none;
 }
@@ -132,7 +149,7 @@ ul div:hover {
   background: rgb(0, 0, 0);
   box-shadow: 0px 0px 10px rgb(194, 194, 194);
   border-radius: 10px;
-  margin: 0px 6%;
+  margin: 0% 6%;
   padding: 1%;
 }
 .normContentFormat > img,
@@ -155,9 +172,10 @@ nav div {
 }
 #root > div {
   min-height: 100vh;
-  max-height: fit-content;
+  max-height: calc(fit-content + 4%);
   background: url("./images/universe_1920.jpg");
   background-size: cover;
+  padding: 10% 0% 1% 0%;
 }
 #projectRender > h2,
 #projectRender > div {
@@ -168,7 +186,7 @@ nav div {
 }
 /* CSS affected by media width */
 h1 {
-  font-size: 25%;
+  font-size: 45%;
   font-weight: bold;
   font-family: "Courier New", Courier, monospace;
   color: rgb(0, 0, 0);
@@ -218,7 +236,7 @@ p,
 }
 @media only screen and (min-width: 600px) {
   h1 {
-    transform: scale(2);
+    font-size: 35%;
   }
   h6,
   table {
@@ -259,10 +277,23 @@ p,
     flex-direction: row;
     justify-content: space-around;
   }
+  #ExpandMenu {
+    display: none;
+  }
+  nav li:nth-last-child(2) div {
+    border-radius: 0px 0px 30px 0px;
+  }
+  nav a,
+  #ExpandMenu {
+    justify-content: center;
+  }
+  #root > div {
+    padding: 4% 0% 1% 0%;
+  }
 }
 @media only screen and (min-width: 900px) {
   h1 {
-    transform: scale(3);
+    font-size: 55%;
   }
   h6,
   table {
@@ -292,7 +323,7 @@ p,
 }
 @media only screen and (min-width: 1200px) {
   h1 {
-    transform: scale(4);
+    font-size: 75%;
   }
   h6,
   table {
