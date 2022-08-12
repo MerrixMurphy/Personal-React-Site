@@ -6,11 +6,16 @@ function Home({ repos }) {
   const liveDeploy = [];
   return (
     <main className="specContentFormat">
-      <h2>Welcome to my universe!</h2>
-      <h3>
-        Here you can find some of the newest projects I'm working on or check
-        out a full list of my personal and professional projects.
-      </h3>
+      <div>
+        <h2>Welcome to my Github universe!</h2>
+        <h3>
+          Here, you can see brief snapshots of my projects displayed as their
+          own planets. Each planet has unique details about the project,
+          including a link to it's Github. Some of my planets may also have life
+          on them, so feel free to check them out if you want to see other live
+          examples of my projects.
+        </h3>
+      </div>
       <section className="mediaQueryflex" id="home">
         <img src={ProfilePic} alt="Developer" title="Developer" />
         <div>
@@ -37,6 +42,7 @@ function Home({ repos }) {
           </p>
         </div>
       </section>
+      <h3>Here are my most recent Projects:</h3>
       {repos ? (
         <ProjectRender repos={repos} deploy={liveDeploy} homePage={true} />
       ) : null}

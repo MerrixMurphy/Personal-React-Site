@@ -7,10 +7,7 @@ function About() {
     () => ["React", "Node", "Express", "Bootstrap"],
     []
   );
-  const tools = useMemo(
-    () => ["Git", "GitHub", "GitHub Pages", "Vercel", "Heroku"],
-    []
-  );
+  const tools = useMemo(() => ["Git", "GitHub", "GitHub Pages", "Heroku"], []);
   const [longest, setLongest] = useState(null);
 
   useEffect(() => {
@@ -47,7 +44,7 @@ function About() {
             <a href="https://www.unlv.edu/about" target="blank">
               UNLV
             </a>{" "}
-            in 2018 with a BA in English and a Concentration in creative writing
+            in 2018 with a BA in English and a concentration in Creative Writing
           </h6>
           <h6>
             I currently work full time for{" "}
@@ -64,13 +61,6 @@ function About() {
           </h6>
         </div>
       </section>
-      <h6>
-        Full Stack Web Developer proficient in JavaScript ES6, React, HTML5, and
-        CSS3 with 4 years of experience in customer service which has developed
-        stress management, customer service, and troubleshooting skills. I have
-        a strong interest in storytelling, which helped me acquire my BA in
-        English.
-      </h6>
       <h3>Skills</h3>
       <table>
         <thead>

@@ -51,7 +51,7 @@ function ProjectRender({ repos, deploy, homePage }) {
       </div>
       <div style={{ overflow: homePage ? "visible" : "auto" }}>
         <p>
-          <strong>Planet Code Name: </strong>
+          <strong>Code Name: </strong>
           <a href={repos[currentRepo].html_url} target="blank">
             {repos[currentRepo].name}
           </a>

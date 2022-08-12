@@ -41,7 +41,7 @@ function Contact({ contactData, setContactData, defaultContactData }) {
       {!formSub ? (
         <form ref={form} onSubmit={sendEmail}>
           <div>
-            <h2>Wanna get in touch?</h2>
+            <h2>Want to get in touch?</h2>
             <h3>Send me an email here!</h3>
           </div>
           <div>

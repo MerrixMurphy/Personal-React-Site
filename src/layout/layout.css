@@ -40,6 +40,9 @@ table {
 form {
   justify-content: space-evenly;
 }
+main > div {
+  margin: 5%;
+}
 form,
 form div,
 .normContentFormat,
@@ -70,6 +73,15 @@ form div,
 #home,
 #projectRender {
   width: 90%;
+}
+#home {
+  margin: 5%;
+}
+.specContentFormat #projectRender {
+  margin-bottom: 5%;
+}
+.specContentFormat > h3 {
+  margin: 1% 0%;
 }
 nav div,
 form,
@@ -195,12 +207,25 @@ h6,
 table {
   font-size: 70%;
 }
+table {
+  width: 80%;
+  align-self: center;
+}
 label {
   display: flex;
   width: 40%;
 }
 .normContentFormat {
   height: 93vh;
+}
+.normContentFormat > h3 {
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 12%;
+  bottom: 0;
+  width: 80%;
 }
 .specContentFormat {
   min-height: 93vh;
@@ -290,6 +315,9 @@ p,
   #root > div {
     padding: 4% 0% 1% 0%;
   }
+  .normContentFormat > h3 {
+    top: 7%;
+  }
 }
 @media only screen and (min-width: 900px) {
   h1 {
@@ -320,6 +348,9 @@ p,
   .mediaQueryflex {
     flex-direction: row;
   }
+  .normContentFormat > h3 {
+    top: 11%;
+  }
 }
 @media only screen and (min-width: 1200px) {
   h1 {
@@ -340,5 +371,8 @@ p,
   }
   .flexCenter img {
     height: 80%;
+  }
+  .normContentFormat > h3 {
+    top: 13%;
   }
 }
