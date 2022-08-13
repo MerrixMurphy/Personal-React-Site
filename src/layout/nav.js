@@ -10,8 +10,10 @@ import Unexpanded from "./images/unexpanded.png";
 
 function Nav() {
   const [isExpanded, setIsExpanded] = useState(null);
-  const currentURL = window.location.pathname;
-
+  let currentURL = window.location.pathname;
+  if (currentURL === "/") {
+    currentURL = "/home";
+  }
   useEffect(() => {
     if (window.innerWidth < 600) {
       setIsExpanded(false);
