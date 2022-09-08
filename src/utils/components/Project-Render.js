@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Planet from "./Planet";
 import Arrow from "../../layout/images/arrowBtn.png";
 
-function ProjectRender({ repos, deploy, homePage }) {
+function ProjectRender({ repos, homePage }) {
   const [currentRepo, setCurrentRepo] = useState(0);
   function rightArrow() {
     if (currentRepo < repos.length - 1) {
@@ -30,8 +30,11 @@ function ProjectRender({ repos, deploy, homePage }) {
           className="left"
           style={{ visibility: currentRepo !== 0 ? "visible" : "hidden" }}
         />
-        {deploy.includes(repos[currentRepo].id) ? (
-          <Planet liveName={repos[currentRepo].name} />
+        {repos[currentRepo].deploy ? (
+          <Planet
+            liveName={repos[currentRepo].name}
+            deploy={repos[currentRepo].deploy}
+          />
         ) : (
           <Planet />
         )}
@@ -58,9 +61,13 @@ function ProjectRender({ repos, deploy, homePage }) {
         </p>
         <p>
           <strong>Supports Life: </strong>
-          {deploy.includes(repos[currentRepo].id) ? (
+          {repos[currentRepo].deploy ? (
             <a
-              href={`https://merrixmurphy.github.io/` + repos[currentRepo].name}
+              href={
+                repos[currentRepo].deploy === "git"
+                  ? `https://merrixmurphy.github.io/` + repos[currentRepo].name
+                  : `https://` + repos[currentRepo].name + `.herokuapp.com`
+              }
               target="blank"
             >
               True

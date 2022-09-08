@@ -58,11 +58,19 @@ function Routing() {
   useEffect(pullRepos, []);
   useEffect(() => {
     const newRepoList = [];
+    const gitDeploy = [377055692, 399282785, 388184984, 383274947];
+    const otherDeploy = [401868243, 425923736];
+    let deployed = null;
     allRepos.forEach((element) => {
       if (element.fork === false) {
         const betterLastPush = new Date(element.pushed_at)
           .toString()
           .slice(0, 15);
+        if (gitDeploy.includes(element.id)) {
+          deployed = "git";
+        } else if (otherDeploy.includes(element.id)) {
+          deployed = "other";
+        }
         newRepoList.push({
           name: element.name,
           description: element.description,
@@ -70,6 +78,7 @@ function Routing() {
           html_url: element.html_url,
           last_pushed: betterLastPush,
           isPrivate: element.private,
+          deploy: deployed,
         });
       }
     });

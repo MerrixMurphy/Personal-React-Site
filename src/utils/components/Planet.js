@@ -15,6 +15,7 @@ import Neptune from "../../layout/images/2k_neptune.jpg";
 import Saturn from "../../layout/images/2k_saturn.jpg";
 import Uranus from "../../layout/images/2k_uranus.jpg";
 let nameholder = null;
+let deployed = null;
 
 function Sphere(props) {
   const textures = [
@@ -46,7 +47,11 @@ function Sphere(props) {
       ref={mesh}
       onClick={() =>
         nameholder
-          ? window.open(`https://merrixmurphy.github.io/` + nameholder)
+          ? window.open(
+              deployed === "git"
+                ? `https://merrixmurphy.github.io/` + nameholder
+                : `https://` + nameholder + `.herokuapp.com`
+            )
           : null
       }
     >
@@ -56,8 +61,9 @@ function Sphere(props) {
   );
 }
 
-function Planet({ liveName }) {
+function Planet({ liveName, deploy }) {
   nameholder = liveName;
+  deployed = deploy;
   return (
     <Canvas>
       <directionalLight intensity={1} position={[10, 10, 30]} />

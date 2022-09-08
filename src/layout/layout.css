@@ -24,9 +24,7 @@ img {
   height: 20%;
 }
 a {
-  display: inline;
   font-weight: 600;
-  text-decoration: none;
 }
 a,
 a:hover {
@@ -220,12 +218,12 @@ label {
 }
 .normContentFormat > h3 {
   position: fixed;
-  margin: auto;
-  left: 0;
+  left: 10%;
   right: 0;
   top: 12%;
   bottom: 0;
   width: 80%;
+  height: fit-content;
 }
 .specContentFormat {
   min-height: 93vh;
