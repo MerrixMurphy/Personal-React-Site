@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "personal website react",
   "engines": {
-    "node": "18.2.0"
+    "node": "18.2.0",
+    "npm": "8.1.2"
   },
   "private": true,
   "repository": {
