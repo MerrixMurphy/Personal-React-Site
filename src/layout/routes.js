@@ -72,7 +72,7 @@ function Routing() {
           } else if (otherDeploy.includes(element.id)) {
             deployed = "other";
           } else {
-            deployed - null
+            deployed = null
           }
           newRepoList.push({
             name: element.name,
