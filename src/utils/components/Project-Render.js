@@ -17,6 +17,7 @@ function ProjectRender({ repos, homePage }) {
   return repos.length > 0 ? (
     //make live url change between git and heroku
     <section key={repos[currentRepo].id} id="projectRender">
+    {console.log(currentRepo)}
       <h2>
         <strong>Planet Number: </strong>
         {repos[currentRepo].id}
