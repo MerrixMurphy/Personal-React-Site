@@ -71,6 +71,8 @@ function Routing() {
             deployed = "git";
           } else if (otherDeploy.includes(element.id)) {
             deployed = "other";
+          } else {
+            deployed - null
           }
           newRepoList.push({
             name: element.name,
