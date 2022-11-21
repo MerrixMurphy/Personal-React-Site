@@ -66,7 +66,7 @@ function ProjectRender({ repos, homePage }) {
               href={
                 repos[currentRepo].deploy === "git"
                   ? `https://merrixmurphy.github.io/` + repos[currentRepo].name
-                  : `https://` + repos[currentRepo].name + `.herokuapp.com`
+                  : `https://` + repos[currentRepo].name + `.onrender.com`
               }
               target="blank"
             >
