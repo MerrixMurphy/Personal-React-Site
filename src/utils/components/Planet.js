@@ -16,6 +16,7 @@ import Saturn from "../../layout/images/2k_saturn.jpg";
 import Uranus from "../../layout/images/2k_uranus.jpg";
 let nameholder = null;
 let deployed = null;
+let site = null;
 
 function Sphere(props) {
   const textures = [
@@ -47,11 +48,7 @@ function Sphere(props) {
       ref={mesh}
       onClick={() =>
         nameholder
-          ? window.open(
-              deployed === "git"
-                ? `https://merrixmurphy.github.io/` + nameholder
-                : `https://` + nameholder + `.herokuapp.com`
-            )
+          ? window.open(site)
           : null
       }
     >
@@ -64,6 +61,15 @@ function Sphere(props) {
 function Planet({ liveName, deploy }) {
   nameholder = liveName;
   deployed = deploy;
+  if (deployed === "git"){
+  site = `https://merrixmurphy.github.io/` + nameholder
+  } else if (deployed === "itch") {
+    if (liveName === "minifight"){
+      site = "https://edwardvonbock.itch.io/trial-of-explorers"
+    }
+  } else {
+  site = `https://` + nameholder + `.onrender.com`
+  }
   return (
     <Canvas>
       <directionalLight intensity={1} position={[10, 10, 30]} />
