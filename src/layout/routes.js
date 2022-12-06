@@ -59,7 +59,7 @@ function Routing() {
   useEffect(() => {
     const newRepoList = [];
     const gitDeploy = [377055692, 399282785, 388184984, 383274947];
-    const otherDeploy = [401868243, 425923736];
+    const otherDeploy = [401868243, 425923736, 562235508];
     let deployed = null;
     if (allRepos.length > 0) {
       allRepos.forEach((element) => {
