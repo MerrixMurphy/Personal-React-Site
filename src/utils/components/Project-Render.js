@@ -65,7 +65,7 @@ function ProjectRender({ repos, homePage }) {
             <a
               href={
             repos[currentRepo].deploy === "git" ? 
-            `https://merrixmurphy.github.io/` + nameholder
+            `https://merrixmurphy.github.io/` + repos[currentRepo].name
            : repos[currentRepo].deploy === "itch" ?
 repos[currentRepo].name === "minifight" ?
 "https://edwardvonbock.itch.io/trial-of-explorers" :
