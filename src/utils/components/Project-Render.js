@@ -4,6 +4,8 @@ import Arrow from "../../layout/images/arrowBtn.png";
 
 function ProjectRender({ repos, homePage }) {
   const [currentRepo, setCurrentRepo] = useState(0);
+  let site = null;
+  
   function rightArrow() {
     if (currentRepo < repos.length - 1) {
       setCurrentRepo(currentRepo + 1);
@@ -61,10 +63,7 @@ function ProjectRender({ repos, homePage }) {
         </p>
         <p>
           <strong>Supports Life: </strong>
-          {repos[currentRepo].deploy ? (
-            <a
-              href={
-            if (repos[currentRepo].deploy === "git"){
+{if (repos[currentRepo].deploy === "git"){
   site = `https://merrixmurphy.github.io/` + nameholder
   } else if (repos[currentRepo].deploy === "itch") {
     if (repos[currentRepo].name === "minifight"){
@@ -72,11 +71,10 @@ function ProjectRender({ repos, homePage }) {
     }
   } else {
   site = `https://` + repos[currentRepo].name + `.onrender.com`
-  }
-                repos[currentRepo].deploy === "git"
-                  ? `https://merrixmurphy.github.io/` + repos[currentRepo].name
-                  : `https://` + repos[currentRepo].name + `.onrender.com`
-              }
+  }}
+          {repos[currentRepo].deploy ? (
+            <a
+              href={site}
               target="blank"
             >
               True
