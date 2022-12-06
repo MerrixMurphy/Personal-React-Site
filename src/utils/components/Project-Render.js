@@ -64,6 +64,15 @@ function ProjectRender({ repos, homePage }) {
           {repos[currentRepo].deploy ? (
             <a
               href={
+            if (repos[currentRepo].deploy === "git"){
+  site = `https://merrixmurphy.github.io/` + nameholder
+  } else if (repos[currentRepo].deploy === "itch") {
+    if (repos[currentRepo].name === "minifight"){
+      site = "https://edwardvonbock.itch.io/trial-of-explorers"
+    }
+  } else {
+  site = `https://` + repos[currentRepo].name + `.onrender.com`
+  }
                 repos[currentRepo].deploy === "git"
                   ? `https://merrixmurphy.github.io/` + repos[currentRepo].name
                   : `https://` + repos[currentRepo].name + `.onrender.com`
